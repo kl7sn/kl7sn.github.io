@@ -7,10 +7,12 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta property="og:type" content="website">
-<meta property="og:title" content="MEX">
-<meta property="og:url" content="https://kl7sn.github.io/archives/2022/index.html">
+<meta property="og:title" content="search">
+<meta property="og:url" content="https://kl7sn.github.io/search/index.html">
 <meta property="og:site_name" content="MEX">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-02T15:56:40.807Z">
+<meta property="article:modified_time" content="2022-12-02T15:56:40.807Z">
 <meta property="article:author" content="kl7sn">
 <meta name="twitter:card" content="summary">
     
@@ -32,7 +34,7 @@
       
     
     <!-- title -->
-    <title>Writing: 2022</title>
+    <title>search</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -82,66 +84,22 @@
 </header>
 
         
-        <div id="archive">
-  <ul class="post-list">
-    
-    
-    
-    
-      
-      
-      
-      
-        <li class="post-year"><h2>2022</h2></li>
-      
-      <li class="post-item">
-        
-    <div class="meta">
-      
-        
-          <time datetime="2022-03-14T07:24:02.000Z" itemprop="datePublished">2022-03-14</time>
-        
-      
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2022/03/14/clickhouse/">ClickHouse</a>
-    
-
-
-</span>
-      </li>
-    
-      
-      
-      
-      
-      <li class="post-item">
-        
-    <div class="meta">
-      
-        
-          <time datetime="2022-02-27T17:38:21.000Z" itemprop="datePublished">2022-02-28</time>
-        
-      
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/2022/02/28/kubectl/">常用指令</a>
-    
-
-
-</span>
-      </li>
-    
-  </ul>
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
 
-</div>
+  <div class="content" itemprop="articleBody">
+      
+        <section id="search">
+  <form>
+    <input type="text" class="search-input" id="search-input" placeholder="Search...">
+  </form>
+  <div id="search-result"></div>
+  <p class="search-no-result">No results found.</p>
+</section>
+
+      
+  </div>
+</article>
 
         
         <footer id="footer">
@@ -193,6 +151,45 @@
 
 <!-- search -->
 
+  
+<script src="/js/search.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+
+    var $inputArea = $("input#search-input");
+    var $resultArea = document.querySelector("div#search-result");
+
+    $inputArea.focus(function() {
+      var search_path = "search.xml";
+      if (search_path.length == 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      searchFunc(path, 'search-input', 'search-result');
+    });
+
+    $inputArea.keydown(function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+      }
+    });
+
+    var observer = new MutationObserver(function(mutationsList, observer) {
+      if (mutationsList.length == 1) {
+        if (mutationsList[0].addedNodes.length) {
+          $(".search-no-result").hide();
+        } else if (mutationsList[0].removedNodes.length) {
+          $(".search-no-result").show(200);
+        }
+      }
+    });
+
+    observer.observe($resultArea, { childList: true });
+
+  });
+  </script>
+
 <!-- Google Analytics -->
 
 <!-- Baidu Analytics -->
@@ -202,6 +199,18 @@
 <!-- Umami Analytics -->
 
 <!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'kl7sn-github-io';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
 
 <!-- utterances Comments -->
 

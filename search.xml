@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>ClickHouse</title>
+      <link href="/2022/03/14/clickhouse/"/>
+      <url>/2022/03/14/clickhouse/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> clickhouse </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常用指令</title>
+      <link href="/2022/02/28/kubectl/"/>
+      <url>/2022/02/28/kubectl/</url>
+      
+        <content type="html"><![CDATA[<p>ps aux | grep kubectl</p><p>在 k8s 急群众创建命名空间</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace mogo</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>暴露端口</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> k8s </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
