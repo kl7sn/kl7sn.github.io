@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title>抓包</title>
+      <link href="/2023/03/18/capture/"/>
+      <url>/2023/03/18/capture/</url>
+      
+        <content type="html"><![CDATA[<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><p><a href="https://zhuanlan.zhihu.com/p/26182135">https://zhuanlan.zhihu.com/p/26182135</a></p><h2 id="调试飞书客户端"><a href="#调试飞书客户端" class="headerlink" title="调试飞书客户端"></a>调试飞书客户端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Applications/Lark.app/Contents/MacOS</span><br><span class="line"></span><br><span class="line">sudo ./Feishu -remote-debugging-port=9222</span><br></pre></td></tr></table></figure><p>然后访问</p><blockquote><p>chrome:&#x2F;&#x2F;inspect&#x2F;#devices</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis</title>
+      <link href="/2023/03/18/redis/"/>
+      <url>/2023/03/18/redis/</url>
+      
+        <content type="html"><![CDATA[<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span> RedisLock struct &#123;</span><br><span class="line">  client  *redis.Client</span><br><span class="line">  <span class="built_in">timeout</span> int64</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func NewRedisLock(client *redis.Client, config *base.Config) dependency.Locker &#123;</span><br><span class="line">  <span class="built_in">return</span> &amp;RedisLock&#123;client: client, <span class="built_in">timeout</span>: config.RedisLockTimeoutSecond&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (r *RedisLock) Lock(ctx context.Context, key string) (unlockFunc func() error, success bool) &#123;</span><br><span class="line">  <span class="built_in">id</span> := uuid.New().String()</span><br><span class="line">  result := r.client.SetNX(ctx, key, <span class="built_in">id</span>, time.Duration(r.timeout)*time.Second)</span><br><span class="line">  <span class="keyword">if</span> success, err := result.Result(); err != nil || !success &#123;</span><br><span class="line">    <span class="built_in">return</span> func() error &#123; <span class="built_in">return</span> nil &#125;, <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">return</span> func() error &#123;</span><br><span class="line">    result, err := r.client.Get(ctx, key).Result()</span><br><span class="line">    <span class="keyword">if</span> err != nil &#123;</span><br><span class="line">      <span class="built_in">return</span> err</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> result == <span class="built_in">id</span> &#123;</span><br><span class="line">      <span class="built_in">return</span> r.client.Del(ctx, key).Err()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> errors.New(<span class="string">&quot;key not fount&quot;</span>)</span><br><span class="line">  &#125;, <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux 常用指令</title>
+      <link href="/2023/03/18/linux/"/>
+      <url>/2023/03/18/linux/</url>
+      
+        <content type="html"><![CDATA[<h2 id="移位"><a href="#移位" class="headerlink" title="移位"></a>移位</h2><p>这是 1M ？ 1&lt;&lt;20</p><h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre><code class="bash">curl -v 查看具体的请求流程curl -o 文件名</code></pre><h2 id="Alpine-软件安装"><a href="#Alpine-软件安装" class="headerlink" title="Alpine 软件安装"></a>Alpine 软件安装</h2><p>telnet</p><blockquote><p>apk add busybox-extras</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于 Docker 搭建 ClickHouse 集群</title>
       <link href="/2022/12/05/clickhouse/"/>
       <url>/2022/12/05/clickhouse/</url>
