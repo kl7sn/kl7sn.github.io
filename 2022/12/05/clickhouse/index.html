@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="下载 docker-compose 文件https:&#x2F;&#x2F;github.com&#x2F;jneo8&#x2F;clickhouse-setup 修改 networks 配置 123networks:  clickvisual-net:    driver: bridge  需要暴露 http 端口的，再增加 123ports:    - 9001:9000    - 8123:8123">
+    <meta name="description" content="download docker-compose filehttps:&#x2F;&#x2F;github.com&#x2F;jneo8&#x2F;clickhouse-setup modifying networks configuration 123networks:  clickvisual-net:    driver: bridge  add ports  123ports:    - 9001:9000    - 8123:8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于 Docker 搭建 ClickHouse 集群">
+<meta property="og:title" content="Build ClickHouse Cluster based on Docker">
 <meta property="og:url" content="https://kl7sn.github.io/2022/12/05/clickhouse/index.html">
 <meta property="og:site_name" content="MEX">
-<meta property="og:description" content="下载 docker-compose 文件https:&#x2F;&#x2F;github.com&#x2F;jneo8&#x2F;clickhouse-setup 修改 networks 配置 123networks:  clickvisual-net:    driver: bridge  需要暴露 http 端口的，再增加 123ports:    - 9001:9000    - 8123:8123">
+<meta property="og:description" content="download docker-compose filehttps:&#x2F;&#x2F;github.com&#x2F;jneo8&#x2F;clickhouse-setup modifying networks configuration 123networks:  clickvisual-net:    driver: bridge  add ports  123ports:    - 9001:9000    - 8123:8">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://kl7sn.github.io/img/clickhouse-1.png">
 <meta property="article:published_time" content="2022-12-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-05T10:15:14.193Z">
+<meta property="article:modified_time" content="2023-04-19T09:36:51.664Z">
 <meta property="article:author" content="kl7sn">
 <meta property="article:tag" content="clickhouse">
 <meta name="twitter:card" content="summary">
@@ -39,7 +39,7 @@
       
     
     <!-- title -->
-    <title>基于 Docker 搭建 ClickHouse 集群</title>
+    <title>Build ClickHouse Cluster based on Docker</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -96,16 +96,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://kl7sn.github.io/2022/12/05/clickhouse/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://kl7sn.github.io/2022/12/05/clickhouse/&text=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kl7sn.github.io/2022/12/05/clickhouse/&is_video=false&description=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=基于 Docker 搭建 ClickHouse 集群&body=Check out this article: https://kl7sn.github.io/2022/12/05/clickhouse/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://kl7sn.github.io/2022/12/05/clickhouse/&name=基于 Docker 搭建 ClickHouse 集群&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://kl7sn.github.io/2022/12/05/clickhouse/&t=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://kl7sn.github.io/2022/12/05/clickhouse/&text=Build ClickHouse Cluster based on Docker"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kl7sn.github.io/2022/12/05/clickhouse/&is_video=false&description=Build ClickHouse Cluster based on Docker"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Build ClickHouse Cluster based on Docker&body=Check out this article: https://kl7sn.github.io/2022/12/05/clickhouse/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://kl7sn.github.io/2022/12/05/clickhouse/&name=Build ClickHouse Cluster based on Docker&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://kl7sn.github.io/2022/12/05/clickhouse/&t=Build ClickHouse Cluster based on Docker"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -122,7 +122,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        基于 Docker 搭建 ClickHouse 集群
+        Build ClickHouse Cluster based on Docker
     </h1>
 
 
@@ -154,11 +154,11 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>下载 docker-compose 文件<br><a target="_blank" rel="noopener" href="https://github.com/jneo8/clickhouse-setup">https://github.com/jneo8/clickhouse-setup</a></p>
-<p>修改 networks 配置</p>
+    <p>download docker-compose file<br><a target="_blank" rel="noopener" href="https://github.com/jneo8/clickhouse-setup">https://github.com/jneo8/clickhouse-setup</a></p>
+<p>modifying networks configuration</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">clickvisual-net:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure>
 
-<p>需要暴露 http 端口的，再增加</p>
+<p>add ports </p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">9001</span><span class="string">:9000</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">8123</span><span class="string">:8123</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/../img/clickhouse-1.png" alt="img.png"></p>
@@ -201,16 +201,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://kl7sn.github.io/2022/12/05/clickhouse/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://kl7sn.github.io/2022/12/05/clickhouse/&text=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kl7sn.github.io/2022/12/05/clickhouse/&is_video=false&description=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=基于 Docker 搭建 ClickHouse 集群&body=Check out this article: https://kl7sn.github.io/2022/12/05/clickhouse/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://kl7sn.github.io/2022/12/05/clickhouse/&name=基于 Docker 搭建 ClickHouse 集群&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://kl7sn.github.io/2022/12/05/clickhouse/&t=基于 Docker 搭建 ClickHouse 集群"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://kl7sn.github.io/2022/12/05/clickhouse/&text=Build ClickHouse Cluster based on Docker"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kl7sn.github.io/2022/12/05/clickhouse/&is_video=false&description=Build ClickHouse Cluster based on Docker"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Build ClickHouse Cluster based on Docker&body=Check out this article: https://kl7sn.github.io/2022/12/05/clickhouse/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://kl7sn.github.io/2022/12/05/clickhouse/&title=Build ClickHouse Cluster based on Docker"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://kl7sn.github.io/2022/12/05/clickhouse/&name=Build ClickHouse Cluster based on Docker&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://kl7sn.github.io/2022/12/05/clickhouse/&t=Build ClickHouse Cluster based on Docker"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
