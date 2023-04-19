@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Install Confluent-Kafka on Apple&#39;s M1</title>
+      <link href="/2023/04/18/rdkafka/"/>
+      <url>/2023/04/18/rdkafka/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/confluentinc/librdkafka.git</span><br><span class="line"><span class="built_in">cd</span> librdkafka</span><br><span class="line">./configure --install-deps</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure><p>if you get error like this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmp: TAGS: No such file or directory</span><br></pre></td></tr></table></figure><p>you can try this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew install openssl zstd pkg-config</span><br><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=<span class="string">&quot;/opt/homebrew/opt/openssl@3/lib/pkgconfig&quot;</span></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">&quot;-L/opt/homebrew/opt/openssl@3/lib&quot;</span></span><br><span class="line">brew install ctags</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/opt/homebrew/opt/openssl@3/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure><p>after that, you can try again:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run -tags dynamic main.go</span><br></pre></td></tr></table></figure><p>if you get error like this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Package libcrypto was not found <span class="keyword">in</span> the pkg-config search path.</span><br><span class="line">Perhaps you should add the directory containing `libcrypto.pc<span class="string">&#x27;</span></span><br><span class="line"><span class="string">to the PKG_CONFIG_PATH environment variable</span></span><br><span class="line"><span class="string">Package &#x27;</span>libcrypto<span class="string">&#x27;, required by &#x27;</span>rdkafka<span class="string">&#x27;, not found</span></span><br><span class="line"><span class="string">pkg-config: exit status 1</span></span><br></pre></td></tr></table></figure><p>you can try this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=/opt/homebrew/opt/openssl/lib/pkgconfig</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>抓包</title>
       <link href="/2023/03/18/capture/"/>
       <url>/2023/03/18/capture/</url>
