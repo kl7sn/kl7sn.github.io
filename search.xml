@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>Go Code Style Specification</title>
+      <link href="/2023/04/19/code/"/>
+      <url>/2023/04/19/code/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://gocn.github.io/styleguide/docs/01-overview/">https://gocn.github.io/styleguide/docs/01-overview/</a></p><h2 id="Excerpt"><a href="#Excerpt" class="headerlink" title="Excerpt"></a>Excerpt</h2><p><img src="/../img/code-short.png" alt="img.png"></p><p>function and method names should not be prefixed with Get or get, use Compute or Fetch to make it clear to the reader that function calls may take time and may block or fail.</p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Good:</span></span><br><span class="line">err := fmt.Errorf(<span class="string">&quot;something bad happened&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Good:</span></span><br><span class="line">log.Infof(<span class="string">&quot;Operation aborted: %v&quot;</span>, err)</span><br><span class="line">log.Errorf(<span class="string">&quot;Operation aborted: %v&quot;</span>, err)</span><br><span class="line">t.Errorf(<span class="string">&quot;Op(%q) failed unexpectedly; err=%v&quot;</span>, args, err)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ego Use Skills</title>
+      <link href="/2023/04/19/ego/"/>
+      <url>/2023/04/19/ego/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Console-Log-Output"><a href="#Console-Log-Output" class="headerlink" title="Console Log Output"></a>Console Log Output</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[logger.default]</span><br><span class="line">level = &quot;info&quot;</span><br><span class="line">maxSize = 200 </span><br><span class="line">maxBackup = 2</span><br><span class="line">enableAsync = false</span><br><span class="line">writer = &quot;stderr&quot;</span><br><span class="line"></span><br><span class="line">[logger.ego]</span><br><span class="line">level = &quot;info&quot;</span><br><span class="line">maxSize = 200 </span><br><span class="line">maxBackup = 2</span><br><span class="line">enableAsync = false</span><br><span class="line">writer = &quot;stderr&quot;</span><br></pre></td></tr></table></figure><h2 id="Test-Function"><a href="#Test-Function" class="headerlink" title="Test Function"></a>Test Function</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var tt *gintest.Test</span><br><span class="line"></span><br><span class="line">func init() &#123;</span><br><span class="line">  eapp.SetEgoDebug(&quot;true&quot;)</span><br><span class="line">  invoker.InitByConf(conf)</span><br><span class="line">  tt = gintest.Init(gintest.WithTestMiddleware(DebugToken()))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var conf = `</span><br><span class="line">mode = &quot;local&quot;</span><br><span class="line"></span><br><span class="line">`</span><br><span class="line"></span><br><span class="line">func prettyJsonPrint(jsonStr []byte) &#123;</span><br><span class="line">  var prettyJSON bytes.Buffer</span><br><span class="line">  error := json.Indent(&amp;prettyJSON, jsonStr, &quot;&quot;, &quot;\t&quot;)</span><br><span class="line">  if error != nil &#123;</span><br><span class="line">    log.Println(&quot;prettyJsonPrint error: &quot;, error)</span><br><span class="line">    log.Println(&quot;origin str: &quot; + string(jsonStr))</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fmt.Println(string(prettyJSON.Bytes()))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Install Confluent-Kafka on Apple&#39;s M1</title>
       <link href="/2023/04/18/rdkafka/"/>
       <url>/2023/04/18/rdkafka/</url>
@@ -47,7 +73,7 @@
       <link href="/2023/03/18/linux/"/>
       <url>/2023/03/18/linux/</url>
       
-        <content type="html"><![CDATA[<h2 id="Shifting"><a href="#Shifting" class="headerlink" title="Shifting"></a>Shifting</h2><p>1M ？ 1&lt;&lt;20</p><h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre><code class="bash">curl -v (specific request flow)curl -o (show file name)</code></pre><h2 id="Alpine-Software-Installation"><a href="#Alpine-Software-Installation" class="headerlink" title="Alpine Software Installation"></a>Alpine Software Installation</h2><p>telnet</p><blockquote><p>apk add busybox-extras</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre><code class="bash">curl -v (specific request flow)curl -o (show file name)</code></pre><h2 id="Alpine-Software-Installation"><a href="#Alpine-Software-Installation" class="headerlink" title="Alpine Software Installation"></a>Alpine Software Installation</h2><p>telnet</p><blockquote><p>apk add busybox-extras</p></blockquote>]]></content>
       
       
       
@@ -75,11 +101,37 @@
     
     
     <entry>
+      <title>Kafka</title>
+      <link href="/2022/12/05/Kafka/"/>
+      <url>/2022/12/05/Kafka/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Common-Instructions"><a href="#Common-Instructions" class="headerlink" title="Common Instructions"></a>Common Instructions</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// adjust topic partition</span><br><span class="line">kafka-topics --alter --topic ws-api --zookeeper zk-service --partitions 5</span><br><span class="line"></span><br><span class="line">kafka-topics --alter --topic ws-gateway --zookeeper zk-service --partitions 5</span><br><span class="line"></span><br><span class="line">// query topic status</span><br><span class="line">kafka-topics --topic ws-api -describe --zookeeper zk-service</span><br><span class="line"></span><br><span class="line">kafka-topics --topic ws-gateway -describe --zookeeper zk-service</span><br><span class="line"></span><br><span class="line">// query consumer group status</span><br><span class="line">kafka-consumer-groups --bootstrap-server kafka-service:9092 --describe --group  ws-api-ee-release</span><br><span class="line"></span><br><span class="line">kafka-consumer-groups --bootstrap-server kafka-service:9092 --describe --group  ws-gateway-ee-release</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Code Snippet</title>
+      <link href="/2022/12/05/code-snippet/"/>
+      <url>/2022/12/05/code-snippet/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Cross-Domain-Agent"><a href="#Cross-Domain-Agent" class="headerlink" title="Cross-Domain Agent"></a>Cross-Domain Agent</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func allowCrossOrigin() core.HandlerFunc &#123;</span><br><span class="line">  var uploaderAllowOriginRegexp = regexp.MustCompile(econf.GetString(&quot;crossOriginRegexp&quot;))</span><br><span class="line">  return func(c *core.Context) (err error) &#123;</span><br><span class="line">    origin := c.Request.Header.Get(&quot;Origin&quot;)</span><br><span class="line">    if uploaderAllowOriginRegexp.MatchString(origin) &#123;</span><br><span class="line">      c.Header(&quot;Access-Control-Allow-Origin&quot;, origin)</span><br><span class="line">      c.Header(&quot;Vary&quot;, &quot;Origin&quot;)</span><br><span class="line">      c.Header(&quot;Access-Control-Allow-Headers&quot;, c.GetHeader(&quot;Access-Control-Request-Headers&quot;))</span><br><span class="line">      c.Header(&quot;Access-Control-Allow-Methods&quot;, &quot;GET,POST,PATCH,PUT,DELETE,OPTIONS,HEAD&quot;)</span><br><span class="line">      c.Header(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;)</span><br><span class="line">      c.Header(&quot;Access-Control-Max-Age&quot;, &quot;600&quot;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    c.Next()</span><br><span class="line">    return nil</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Shift-Operator"><a href="#Shift-Operator" class="headerlink" title="Shift Operator"></a>Shift Operator</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DepSearchOpUp   = 1 &lt;&lt; 0</span><br><span class="line">op&amp;DepSearchOpUp == DepSearchOpUp </span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>K8s Common Instructions</title>
       <link href="/2022/02/28/kubectl/"/>
       <url>/2022/02/28/kubectl/</url>
       
-        <content type="html"><![CDATA[<p>ps aux | grep kubectl</p><p>create a namespace in the k8s cluster</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace mogo</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>port exposure</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>ps aux | grep kubectl</p><h2 id="Namespace-Create"><a href="#Namespace-Create" class="headerlink" title="Namespace Create"></a>Namespace Create</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace mogo</span><br></pre></td></tr></table></figure><h2 id="Port-Exposure"><a href="#Port-Exposure" class="headerlink" title="Port Exposure"></a>Port Exposure</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br></pre></td></tr></table></figure><h2 id="Ingress-Rewrite"><a href="#Ingress-Rewrite" class="headerlink" title="Ingress Rewrite"></a>Ingress Rewrite</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx.ingress.kubernetes.io/server-snippet: rewrite / https://mdp-hw.shimodev.com/clickvisual$uri permanent;</span><br></pre></td></tr></table></figure><h2 id="Port-Agent"><a href="#Port-Agent" class="headerlink" title="Port Agent"></a>Port Agent</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br></pre></td></tr></table></figure><h2 id="Error-Code"><a href="#Error-Code" class="headerlink" title="Error Code"></a>Error Code</h2><ul><li>255 physical machine restart</li><li>134 service inner error</li></ul><h2 id="Front-End-Compilation"><a href="#Front-End-Compilation" class="headerlink" title="Front-End Compilation"></a>Front-End Compilation</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">FROM xxx AS js-builder</span><br><span class="line"></span><br><span class="line">ENV NODE_OPTIONS=--max_old_space_size=8000</span><br><span class="line">WORKDIR /clickvisual</span><br><span class="line">COPY ui/package.json ui/yarn.lock ./</span><br><span class="line">RUN npm config set registry https://registry.npm.taobao.org</span><br><span class="line">RUN npm config get registry</span><br><span class="line">RUN yarn config set registry https://registry.npm.taobao.org</span><br><span class="line">RUN yarn config get registry</span><br><span class="line">RUN yarn install --network-timeout 100000</span><br><span class="line">ENV NODE_ENV production</span><br><span class="line">ENV PUBLIC_PATH /clickvisual/</span><br><span class="line"></span><br><span class="line">COPY ui .</span><br><span class="line">RUN yarn build</span><br></pre></td></tr></table></figure>]]></content>
       
       
       

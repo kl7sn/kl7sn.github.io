@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="ps aux | grep kubectl create a namespace in the k8s cluster 12kubectl create namespace mogo  port exposure 12kc port-forward deployment&#x2F;prometheus 9090:9090">
+    <meta name="description" content="ps aux | grep kubectl Namespace Create1kubectl create namespace mogo  Port Exposure1kc port-forward deployment&#x2F;prometheus 9090:9090  Ingress Rewrite1nginx.ingress.kubernetes.io&#x2F;server-snippet: rewrite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="K8s Common Instructions">
 <meta property="og:url" content="https://kl7sn.github.io/2022/02/28/kubectl/index.html">
 <meta property="og:site_name" content="MEX">
-<meta property="og:description" content="ps aux | grep kubectl create a namespace in the k8s cluster 12kubectl create namespace mogo  port exposure 12kc port-forward deployment&#x2F;prometheus 9090:9090">
+<meta property="og:description" content="ps aux | grep kubectl Namespace Create1kubectl create namespace mogo  Port Exposure1kc port-forward deployment&#x2F;prometheus 9090:9090  Ingress Rewrite1nginx.ingress.kubernetes.io&#x2F;server-snippet: rewrite">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-27T17:38:21.000Z">
-<meta property="article:modified_time" content="2023-04-19T09:38:27.233Z">
+<meta property="article:modified_time" content="2023-04-19T09:55:12.736Z">
 <meta property="article:author" content="kl7sn">
 <meta property="article:tag" content="k8s">
 <meta name="twitter:card" content="summary">
@@ -77,7 +77,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="Previous post" href="/2022/12/05/clickhouse/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Previous post" href="/2022/12/05/code-snippet/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Namespace-Create"><span class="toc-number">1.</span> <span class="toc-text">Namespace Create</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Port-Exposure"><span class="toc-number">2.</span> <span class="toc-text">Port Exposure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ingress-Rewrite"><span class="toc-number">3.</span> <span class="toc-text">Ingress Rewrite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Port-Agent"><span class="toc-number">4.</span> <span class="toc-text">Port Agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Code"><span class="toc-number">5.</span> <span class="toc-text">Error Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Front-End-Compilation"><span class="toc-number">6.</span> <span class="toc-text">Front-End Compilation</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -151,11 +151,19 @@
 
   <div class="content" itemprop="articleBody">
     <p>ps aux | grep kubectl</p>
-<p>create a namespace in the k8s cluster</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace mogo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Namespace-Create"><a href="#Namespace-Create" class="headerlink" title="Namespace Create"></a>Namespace Create</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl create namespace mogo</span><br></pre></td></tr></table></figure>
 
-<p>port exposure</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Port-Exposure"><a href="#Port-Exposure" class="headerlink" title="Port Exposure"></a>Port Exposure</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ingress-Rewrite"><a href="#Ingress-Rewrite" class="headerlink" title="Ingress Rewrite"></a>Ingress Rewrite</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx.ingress.kubernetes.io/server-snippet: rewrite / https://mdp-hw.shimodev.com/clickvisual$uri permanent;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Port-Agent"><a href="#Port-Agent" class="headerlink" title="Port Agent"></a>Port Agent</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kc port-forward deployment/prometheus 9090:9090</span><br></pre></td></tr></table></figure>
+
+<h2 id="Error-Code"><a href="#Error-Code" class="headerlink" title="Error Code"></a>Error Code</h2><ul>
+<li>255 physical machine restart</li>
+<li>134 service inner error</li>
+</ul>
+<h2 id="Front-End-Compilation"><a href="#Front-End-Compilation" class="headerlink" title="Front-End Compilation"></a>Front-End Compilation</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">FROM xxx AS js-builder</span><br><span class="line"></span><br><span class="line">ENV NODE_OPTIONS=--max_old_space_size=8000</span><br><span class="line">WORKDIR /clickvisual</span><br><span class="line">COPY ui/package.json ui/yarn.lock ./</span><br><span class="line">RUN npm config set registry https://registry.npm.taobao.org</span><br><span class="line">RUN npm config get registry</span><br><span class="line">RUN yarn config set registry https://registry.npm.taobao.org</span><br><span class="line">RUN yarn config get registry</span><br><span class="line">RUN yarn install --network-timeout 100000</span><br><span class="line">ENV NODE_ENV production</span><br><span class="line">ENV PUBLIC_PATH /clickvisual/</span><br><span class="line"></span><br><span class="line">COPY ui .</span><br><span class="line">RUN yarn build</span><br></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -189,7 +197,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Namespace-Create"><span class="toc-number">1.</span> <span class="toc-text">Namespace Create</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Port-Exposure"><span class="toc-number">2.</span> <span class="toc-text">Port Exposure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ingress-Rewrite"><span class="toc-number">3.</span> <span class="toc-text">Ingress Rewrite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Port-Agent"><span class="toc-number">4.</span> <span class="toc-text">Port Agent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Code"><span class="toc-number">5.</span> <span class="toc-text">Error Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Front-End-Compilation"><span class="toc-number">6.</span> <span class="toc-text">Front-End Compilation</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
